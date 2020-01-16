@@ -6,6 +6,62 @@ Overview
 
 ## Demo
 
+### Prerequisite
+#### GCP Login
+```
+$ gcloud auth login --project PROJECT_ID
+```
+
+#### Enabled GCP Service List
+```
+$ gcloud services list
+```
+```
+NAME                                 TITLE
+bigquery.googleapis.com              BigQuery API
+bigquery.googleapis.com              BigQuery API
+bigquerystorage.googleapis.com       BigQuery Storage API
+bigtable.googleapis.com              Cloud Bigtable API
+bigtableadmin.googleapis.com         Cloud Bigtable Admin API
+cloudapis.googleapis.com             Google Cloud APIs
+cloudbilling.googleapis.com          Cloud Billing API
+clouddebugger.googleapis.com         Stackdriver Debugger API
+cloudkms.googleapis.com              Cloud Key Management Service (KMS) API
+cloudresourcemanager.googleapis.com  Cloud Resource Manager API
+cloudtrace.googleapis.com            Stackdriver Trace API
+compute.googleapis.com               Compute Engine API
+container.googleapis.com             Kubernetes Engine API
+containerregistry.googleapis.com     Container Registry API
+datastore.googleapis.com             Cloud Datastore API
+deploymentmanager.googleapis.com     Cloud Deployment Manager V2 API
+dns.googleapis.com                   Cloud DNS API
+file.googleapis.com                  Cloud Filestore API
+firebaserules.googleapis.com         Firebase Rules API
+firestore.googleapis.com             Cloud Firestore API
+iam.googleapis.com                   Identity and Access Management (IAM) API
+iamcredentials.googleapis.com        IAM Service Account Credentials API
+iap.googleapis.com                   Cloud Identity-Aware Proxy API
+logging.googleapis.com               Stackdriver Logging API
+monitoring.googleapis.com            Stackdriver Monitoring API
+oslogin.googleapis.com               Cloud OS Login API
+pubsub.googleapis.com                Cloud Pub/Sub API
+redis.googleapis.com                 Google Cloud Memorystore for Redis API
+replicapool.googleapis.com           Compute Engine Instance Group Manager API
+replicapoolupdater.googleapis.com    Compute Engine Instance Group Updater API
+resourceviews.googleapis.com         Compute Engine Instance Groups API
+servicemanagement.googleapis.com     Service Management API
+serviceusage.googleapis.com          Service Usage API
+sql-component.googleapis.com         Cloud SQL
+sqladmin.googleapis.com              Cloud SQL Admin API
+storage-api.googleapis.com           Google Cloud Storage JSON API
+storage-component.googleapis.com     Cloud Storage
+```
+
+If `Container Registry API` is not enabled, execute the following command;
+```
+$ gcloud services enable containerregistry.googleapis.com
+```
+
 ## Features
 
 - feature:1
