@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.google.cloud.tools.jib.gradle.JibExtension
 
 plugins {
 	id("org.springframework.boot") version "2.2.2.RELEASE"
@@ -6,6 +7,7 @@ plugins {
 	id("com.gorylenko.gradle-git-properties") version "2.0.0"
 	kotlin("jvm") version "1.3.61"
 	kotlin("plugin.spring") version "1.3.61"
+	id("com.google.cloud.tools.jib") version "1.8.0"
 }
 
 group = "io.pivotal.shinyay"
@@ -30,6 +32,26 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+	}
+}
+
+subprojects {
+	apply(plugin = "com.google.cloud.tools.jib")
+
+	configure<JibExtension> {
+		from {
+			image = "shinyay/adoptopenjdk11-minimum"
+		}
+		to {
+			image = "registry.hub.docker.com/shinyay/minikube-back-app:0.0.1"
+			tags = setOf("latest")
+			auth.username = ""
+			auth.password = ""
+		}
+		container {
+			jvmFlags = mutableListOf("-Xms512m", "-Xdebug")
+			useCurrentTimestamp = true
+		}
 	}
 }
 
