@@ -62,6 +62,28 @@ If `Container Registry API` is not enabled, execute the following command;
 $ gcloud services enable containerregistry.googleapis.com
 ```
 
+#### Jib to Build Container
+```
+import com.google.cloud.tools.jib.gradle.JibExtension
+  :
+  :
+plugins {
+  id ("com.google.cloud.tools.jib") version "1.8.0"
+}
+  :
+  :
+subprojects {
+  apply(plugin="com.google.cloud.tools.jib")
+
+  configure<JibExtension> {
+    from {
+      image = ...
+    }
+    to { ... }
+  }
+}
+```
+
 ## Features
 
 - feature:1
