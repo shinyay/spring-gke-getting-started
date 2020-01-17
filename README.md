@@ -94,6 +94,11 @@ $ gradlew clean jib
 $ gcloud container images list
 ```
 
+#### Run Container App from GCR
+```
+$ docker run --rm -it -p 8080:8080 gcr.io/<GCP_PROJECT_ID>/spring-gs:v1
+```
+
 ## Features
 
 - feature:1
