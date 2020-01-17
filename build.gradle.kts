@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import com.google.cloud.tools.jib.gradle.JibExtension
 
 plugins {
 	id("org.springframework.boot") version "2.2.2.RELEASE"
@@ -34,8 +33,8 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 }
-val project_id = if (hasProperty("project_id")) findProperty("project_id") as String else ""
 
+val project_id = if (hasProperty("project_id")) findProperty("project_id") as String else ""
 jib.from.image = "shinyay/adoptopenjdk11-minimum"
 jib.to.image = "gcr.io/${project_id}/spring-gs:v1"
 jib.container.jvmFlags = mutableListOf("-Xms512m", "-Xdebug")

@@ -63,6 +63,8 @@ $ gcloud services enable containerregistry.googleapis.com
 ```
 
 #### Jib to Build Container
+
+- build.gradle.kts
 ```
 import com.google.cloud.tools.jib.gradle.JibExtension
   :
@@ -72,16 +74,16 @@ plugins {
 }
   :
   :
-subprojects {
-  apply(plugin="com.google.cloud.tools.jib")
+val project_id = if (hasProperty("project_id")) findProperty("project_id") as String else ""
+jib.from.image = "shinyay/adoptopenjdk11-minimum"
+jib.to.image = "gcr.io/${project_id}/spring-gs:v1"
+jib.container.jvmFlags = mutableListOf("-Xms512m", "-Xdebug")
+jib.container.useCurrentTimestamp = true
+```
 
-  configure<JibExtension> {
-    from {
-      image = ...
-    }
-    to { ... }
-  }
-}
+- gradle.properties
+```
+project_id=GCP_PROJECT_ID
 ```
 
 ```
