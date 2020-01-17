@@ -100,6 +100,74 @@ $ gcloud container images list
 $ docker run --rm -it -p 8080:8080 gcr.io/<GCP_PROJECT_ID>/spring-gs:v1
 ```
 
+#### Ceate GKE Cluster
+`Usage: gcloud container clusters create NAME [optional flags]`
+
+```
+$ gcloud container clusters create spring-gs-cluster \
+  --num-nodes 2 \
+  --machine-type n1-standard-1 \
+  --zone us-central1-c
+```
+
+##### Create Cluster Options
+
+```
+  optional flags may be  --accelerator | --additional-zones | --addons |
+                         --async | --autoprovisioning-config-file |
+                         --autoprovisioning-locations |
+                         --autoprovisioning-scopes |
+                         --autoprovisioning-service-account |
+                         --cluster-ipv4-cidr | --cluster-secondary-range-name |
+                         --cluster-version | --create-subnetwork |
+                         --database-encryption-key |
+                         --default-max-pods-per-node | --disk-size |
+                         --disk-type | --enable-autoprovisioning |
+                         --enable-autorepair | --enable-autoscaling |
+                         --enable-autoupgrade | --enable-basic-auth |
+                         --enable-binauthz | --enable-cloud-logging |
+                         --enable-cloud-monitoring | --enable-cloud-run-alpha |
+                         --enable-intra-node-visibility | --enable-ip-alias |
+                         --enable-kubernetes-alpha |
+                         --enable-legacy-authorization |
+                         --enable-master-authorized-networks |
+                         --enable-network-egress-metering |
+                         --enable-network-policy | --enable-private-endpoint |
+                         --enable-private-nodes |
+                         --enable-resource-consumption-metering |
+                         --enable-stackdriver-kubernetes | --enable-tpu |
+                         --enable-vertical-pod-autoscaling | --help |
+                         --image-type | --issue-client-certificate | --labels |
+                         --local-ssd-count | --machine-type |
+                         --maintenance-window | --maintenance-window-end |
+                         --maintenance-window-recurrence |
+                         --maintenance-window-start |
+                         --master-authorized-networks | --master-ipv4-cidr |
+                         --max-accelerator | --max-cpu | --max-memory |
+                         --max-nodes | --max-nodes-per-pool |
+                         --max-pods-per-node | --metadata |
+                         --metadata-from-file | --min-accelerator | --min-cpu |
+                         --min-cpu-platform | --min-memory | --min-nodes |
+                         --network | --node-labels | --node-locations |
+                         --node-taints | --node-version | --num-nodes |
+                         --password | --preemptible | --region | --reservation |
+                         --reservation-affinity |
+                         --resource-usage-bigquery-dataset | --scopes |
+                         --service-account | --services-ipv4-cidr |
+                         --services-secondary-range-name |
+                         --shielded-integrity-monitoring |
+                         --shielded-secure-boot | --subnetwork | --tags |
+                         --tpu-ipv4-cidr | --username | --zone
+```
+
+#### List GKE Clusters
+```
+$ gcloud container clusters list
+
+NAME               LOCATION       MASTER_VERSION  MASTER_IP       MACHINE_TYPE   NODE_VERSION    NUM_NODES  STATUS
+spring-gs-cluster  us-central1-c  1.13.11-gke.14  ...........
+```
+
 ## Features
 
 - feature:1
