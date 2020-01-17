@@ -34,26 +34,12 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 }
+val project_id = if (hasProperty("project_id")) findProperty("project_id") as String else ""
 
-subprojects {
-	apply(plugin = "com.google.cloud.tools.jib")
-
-	configure<JibExtension> {
-		from {
-			image = "shinyay/adoptopenjdk11-minimum"
-		}
-		to {
-			image = "registry.hub.docker.com/shinyay/minikube-back-app:0.0.1"
-			tags = setOf("latest")
-			auth.username = ""
-			auth.password = ""
-		}
-		container {
-			jvmFlags = mutableListOf("-Xms512m", "-Xdebug")
-			useCurrentTimestamp = true
-		}
-	}
-}
+jib.from.image = "shinyay/adoptopenjdk11-minimum"
+jib.to.image = "gcr.io/${project_id}/spring-gs:v1"
+jib.container.jvmFlags = mutableListOf("-Xms512m", "-Xdebug")
+jib.container.useCurrentTimestamp = true
 
 tasks.withType<Test> {
 	useJUnitPlatform()
