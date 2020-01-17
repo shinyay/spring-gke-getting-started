@@ -84,6 +84,14 @@ subprojects {
 }
 ```
 
+```
+$ gradlew clean jib
+```
+
+```
+$ gcloud container images list
+```
+
 ## Features
 
 - feature:1
