@@ -57,9 +57,10 @@ storage-api.googleapis.com           Google Cloud Storage JSON API
 storage-component.googleapis.com     Cloud Storage
 ```
 
-If `Container Registry API` is not enabled, execute the following command;
+If `Container Registry API` and `Kubernetes Engine API` is not enabled, execute the following command;
 ```
 $ gcloud services enable containerregistry.googleapis.com
+$ gcloud services enable compute.googleapis.com container.googleapis.com
 ```
 
 #### Jib to Build Container
