@@ -240,6 +240,10 @@ $ kubectl describe pods
 $ kubectl rollout undo deployment/spring-gs
 ```
 
+```
+$ kubectl describe pods
+```
+
 ## Features
 
 - feature:1
