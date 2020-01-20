@@ -168,6 +168,14 @@ NAME               LOCATION       MASTER_VERSION  MASTER_IP       MACHINE_TYPE  
 spring-gs-cluster  us-central1-c  1.13.11-gke.14  ...........
 ```
 
+#### Deploy Application on GKE
+```
+$ kubectl config get-contexts
+
+CURRENT   NAME                                                 CLUSTER                                              AUTHINFO                                             NAMESPACE
+*         gke_.........
+```
+
 ## Features
 
 - feature:1
