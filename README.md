@@ -201,6 +201,19 @@ NAME                         READY   STATUS    RESTARTS   AGE
 spring-gs-65d868bfd8-hqtd2   1/1     Running   0          23s
 ```
 
+#### Expose external network
+```
+$ kubectl create service loadbalancer spring-gs --tcp=8080:8080
+```
+
+```
+$ kubectl get services
+
+NAME         TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)          AGE
+kubernetes   ClusterIP      10.31.240.1     <none>          443/TCP          3d3h
+spring-gs    LoadBalancer   10.31.244.107   12.345.67.890   8080:30954/TCP   79s
+```
+
 ## Features
 
 - feature:1
