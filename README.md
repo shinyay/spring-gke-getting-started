@@ -214,6 +214,18 @@ kubernetes   ClusterIP      10.31.240.1     <none>          443/TCP          3d3
 spring-gs    LoadBalancer   10.31.244.107   12.345.67.890   8080:30954/TCP   79s
 ```
 
+#### Scale out
+```
+$ kubectl scale deployment spring-gs --replicas=3
+```
+
+```
+$ kubectl get deployments
+
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+spring-gs   3/3     3            3           25m
+```
+
 ## Features
 
 - feature:1
