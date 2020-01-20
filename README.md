@@ -183,6 +183,24 @@ CURRENT   NAME                                                 CLUSTER          
 *         gke_.........
 ```
 
+```
+$ kubectl create deployment spring-gs --image=gcr.io/pa-syanagihara/spring-gs:v1
+```
+
+```
+$ kubectl get deployments
+
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+spring-gs   1/1     1            1           12s
+```
+
+```
+$ kubectl get pods
+
+NAME                         READY   STATUS    RESTARTS   AGE
+spring-gs-65d868bfd8-hqtd2   1/1     Running   0          23s
+```
+
 ## Features
 
 - feature:1
