@@ -37,5 +37,6 @@ class PersonRepository {
         save(Person(3, "Soryu Asuka Langley", 14, Gender.FEMALE))
         save(Person(4, "Torji Suzuhara", 14, Gender.MALE))
         save(Person(5, "Kaoru Nagisa", 14, Gender.MALE))
+        save(Person(6, "Mari Makinami", 33, Gender.FEMALE))
     }
 }
