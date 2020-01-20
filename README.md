@@ -7,6 +7,13 @@ Overview
 ## Demo
 
 ### Prerequisite
+#### Google Cloud SDK
+- [For MaxOS](https://cloud.google.com/sdk/docs/quickstart-macos?hl=ja)
+
+```
+$ ./google-cloud-sdk/install.sh
+```
+
 #### GCP Login
 ```
 $ gcloud auth login --project PROJECT_ID
