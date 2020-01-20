@@ -226,6 +226,11 @@ NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 spring-gs   3/3     3            3           25m
 ```
 
+#### Rolling Update
+```
+$ kubectl set image deployment/spring-gs spring-gs=gcr.io/pa-syanagihara/spring-gs:v2
+```
+
 ## Features
 
 - feature:1
