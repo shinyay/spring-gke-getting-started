@@ -9,9 +9,7 @@ function delete_image
     return
   end
 
-  if set -lq _flag_image
-    set -lq _flag_image
-  else
+  if not set -lq _flag_image
     echo "delete-image.fish -i/--image <CONTAINER_IMAGE_NAME>" & return
   end
 
