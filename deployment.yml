@@ -18,6 +18,8 @@ spec:
         - name: spring-gs
           image: gcr.io/pa-syanagihara/spring-gs:v2
           imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
