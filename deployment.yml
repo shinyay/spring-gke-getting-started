@@ -18,6 +18,10 @@ spec:
         - name: spring-gs
           image: gcr.io/pa-syanagihara/spring-gs:v2
           imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/health
 ---
 apiVersion: v1
 kind: Service
