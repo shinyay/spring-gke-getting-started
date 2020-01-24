@@ -16,27 +16,33 @@ spec:
     spec:
       containers:
         - name: spring-gs
-          image: gcr.io/pa-syanagihara/spring-gs:v3
+          image: gcr.io/pa-syanagihara/spring-gs:v2
           imagePullPolicy: Always
-          ports:
-            - containerPort: 8080
-              hostPort: 8080
-          livenessProbe:
-            httpGet:
-              port: 8080
-              path: /actuator/health
-            initialDelaySeconds: 60
           readinessProbe:
             httpGet:
               port: 8080
               path: /actuator/health
-            initialDelaySeconds: 60
+            initialDelaySeconds: 5
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/health
+            initialDelaySeconds: 5
+          ports:
+            - containerPort: 8080
           env:
             - name: message
               valueFrom:
                 configMapKeyRef:
                   name: message-config
                   key: message
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: message-config
+data:
+  message: Hello World from GKE!
 ---
 apiVersion: v1
 kind: Service
@@ -50,10 +56,3 @@ spec:
       targetPort: 8080
       protocol: TCP
   type: LoadBalancer
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: message-config
-data:
-  message: Hello World from Kubernetes!
