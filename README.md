@@ -254,6 +254,70 @@ $ gcloud container clusters delete spring-gs-cluster \
   --zone us-central1-c
 ```
 
+### Deployment YAML
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-gs
+  labels:
+    app: spring-boot
+spec:
+  selector:
+    matchLabels:
+      app: spring-boot
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: spring-boot
+    spec:
+      containers:
+        - name: spring-gs
+          image: gcr.io/<GCP_PROJECT_ID>/spring-gs:v3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              hostPort: 8080
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/health
+            initialDelaySeconds: 60
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/health
+            initialDelaySeconds: 60
+          env:
+            - name: message
+              valueFrom:
+                configMapKeyRef:
+                  name: message-config
+                  key: message
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-gs
+spec:
+  selector:
+    app: spring-boot
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: message-config
+data:
+  message: Hello World from Kubernetes!
+```
+
+
 ## Features
 
 - feature:1
