@@ -317,6 +317,16 @@ data:
   message: Hello World from Kubernetes!
 ```
 
+#### Liveness Probe
+```yaml
+livenessProbe:
+  httpGet:
+    port: 8080
+    path: /actuator/health
+  initialDelaySeconds: 60
+```
+
+#### Readiness Probe
 
 ## Features
 
