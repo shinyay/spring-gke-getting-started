@@ -244,6 +244,14 @@ $ kubectl rollout undo deployment/spring-gs
 $ kubectl describe pods
 ```
 
+#### Ceate GKE Cluster
+`Usage: gcloud container clusters create NAME [optional flags]`
+
+```
+$ gcloud container clusters delete spring-gs-cluster \
+  --zone us-central1-c
+```
+
 ## Features
 
 - feature:1
