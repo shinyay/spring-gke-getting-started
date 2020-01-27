@@ -70,6 +70,7 @@ $ gcloud services enable containerregistry.googleapis.com
 $ gcloud services enable compute.googleapis.com container.googleapis.com
 ```
 
+### Build Application
 #### Jib to Build Container
 
 - build.gradle.kts
@@ -107,6 +108,7 @@ $ gcloud container images list
 $ docker run --rm -it -p 8080:8080 gcr.io/<GCP_PROJECT_ID>/spring-gs:v1
 ```
 
+### Run Application on GKE
 #### Ceate GKE Cluster
 `Usage: gcloud container clusters create NAME [optional flags]`
 
