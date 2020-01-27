@@ -329,7 +329,7 @@ livenessProbe:
 ```
 
 #### Readiness Probe
-
+- **"Readiness"** is the indicator that the service is ready to accept traffic, and is only performed at the beginning of a pod's life cycle.
 
 ## Features
 
