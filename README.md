@@ -318,6 +318,8 @@ data:
 ```
 
 #### Liveness Probe
+- **"Liveness"** is a periodic health check that should indicate that the service is still functional within the pod.
+
 ```yaml
 livenessProbe:
   httpGet:
@@ -327,6 +329,7 @@ livenessProbe:
 ```
 
 #### Readiness Probe
+
 
 ## Features
 
