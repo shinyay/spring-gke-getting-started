@@ -186,7 +186,7 @@ CURRENT   NAME                                                 CLUSTER          
 ```
 
 ```
-$ kubectl create deployment spring-gs --image=gcr.io/pa-syanagihara/spring-gs:v1
+$ kubectl create deployment spring-gs --image=gcr.io/<GCP_PROJECT_ID>/spring-gs:v1
 ```
 
 ```
@@ -230,7 +230,7 @@ spring-gs   3/3     3            3           25m
 
 #### Rolling Update
 ```
-$ kubectl set image deployment/spring-gs spring-gs=gcr.io/pa-syanagihara/spring-gs:v2
+$ kubectl set image deployment/spring-gs spring-gs=gcr.io/<GCP_PROJECT_ID>/spring-gs:v2
 ```
 
 ```
