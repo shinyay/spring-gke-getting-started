@@ -37,6 +37,8 @@ dependencies {
 val project_id = if (hasProperty("project_id")) findProperty("project_id") as String else ""
 jib.from.image = "shinyay/adoptopenjdk11-minimum"
 jib.to.image = "gcr.io/${project_id}/spring-gs:v3"
+//DockerHub
+//jib.to.image = "shinyay/spring-gs:v1"
 jib.container.jvmFlags = mutableListOf("-Xms512m", "-Xdebug")
 jib.container.useCurrentTimestamp = true
 
